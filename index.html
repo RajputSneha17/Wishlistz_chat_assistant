@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlistz - Chat Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main chatbot container -->
+    <div class="chat-container">
+
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="header-content">
+                <div class="bot-avatar">W</div>
+                <div class="header-info">
+                    <h1 class="bot-name">Wishlistz</h1>
+                    <span class="status">
+                        <span class="status-dot"></span>
+                        Online
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Welcome message from bot -->
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>Welcome to Wishlistz 👋</p>
+                    <span class="message-time">Just now</span>
+                </div>
+            </div>
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>How can I help you today?</p>
+                    <span class="message-time">Just now</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input Area -->
+        <div class="chat-input-container">
+            <div class="input-wrapper">
+                <input
+                    type="text"
+                    id="messageInput"
+                    class="message-input"
+                    placeholder="Type your message…"
+                    autocomplete="off"
+                >
+                <button id="sendButton" class="send-button">
+                    <!-- Send icon (SVG) -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
