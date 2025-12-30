@@ -452,6 +452,7 @@ body.light-mode .user-message .message-content {
 }
 
 /* Mobile-specific fixes */
+/* Mobile-specific fixes */
 @media (max-width: 600px) {
   .chatbot-zoom-wrapper {
     transform: none !important;
@@ -475,43 +476,43 @@ body.light-mode .user-message .message-content {
     left: 0 !important;
     right: 0 !important;
     bottom: 12px !important;
-    height: calc(100vh - 24px) !important;         /* Full height for mobile */
-    max-height: calc(100vh - 80px) !important;     /* Prevent overflow if safe areas */
+    height: calc(100vh - 80px) !important;         /* Lower height */
+    max-height: calc(100vh - 80px) !important;     /* Prevent overflow */
     border-radius: 16px !important;
     overflow: hidden !important;
     pointer-events: auto;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(6px);
     transition: all 0.3s ease-in-out;
-    padding-top: 0 !important;                     /* Remove container padding */
+    padding-top: 0 !important;
   }
 
-  /* 🔻 LOWER HEADER HEIGHT */
   .chat-header {
-    height: 48px !important;                       /* Smaller header */
-    padding: 0 12px !important;                    /* Slimmer sides */
+    padding: 12px 16px !important;                /* Restores spacing */
     display: flex !important;
-    align-items: center !important;                /* Center vertically */
+    align-items: center !important;
     justify-content: space-between !important;
-    font-size: 14px !important;                    /* Adjust font */
-    line-height: 48px !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    background-color: inherit !important;
+    border-bottom: 1px solid #334155 !important;
   }
 
-  /* Optional: smaller icons/logo/avatar in header */
   .chat-header img,
   .chat-header .avatar,
   .chat-header svg {
-    height: 32px !important;
-    width: 32px !important;
+    height: 36px !important;
+    width: 36px !important;
+    flex-shrink: 0 !important;
   }
 
   .chat-messages {
     background-attachment: scroll !important;
     background-position: center !important;
-    background-position-y: 190px !important;       /* Adjusted for new header size */
+    background-position-y: 190px !important;
     background-size: 240px !important;
     background-repeat: no-repeat !important;
-    padding-top: 48px !important;                  /* Push content below header */
+    padding-top: 60px !important;                 /* Push messages below header/logo */
   }
 
   .message-content {
