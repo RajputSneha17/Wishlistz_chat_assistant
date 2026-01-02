@@ -9,6 +9,9 @@ const minimizeButton = document.getElementById('minimizeButton');
 const minimizedChat = document.getElementById('minimizedChat');
 const themeToggle = document.getElementById('themeToggle');
 const quickActions = document.querySelectorAll('.quick-action');
+// ================= BACKEND CONFIG =================
+const BACKEND_CHAT_API = "http://localhost:5000/api/chat";
+
 
 // Bot Responses
 const botResponses = [
@@ -57,6 +60,29 @@ function getCurrentTime() {
 function getFileExtension(filename) {
   return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2).toLowerCase();
 }
+
+// ================= BACKEND CHAT CALL =================
+async function getBotResponseFromBackend(userMessage) {
+  try {
+    const response = await fetch(BACKEND_CHAT_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message: userMessage })
+    });
+
+    const data = await response.json();
+
+    // backend should return { reply: "text" }
+    return data.reply || "🤖 No response from server";
+
+  } catch (error) {
+    console.error("Backend error:", error);
+    return "⚠️ Server is not responding";
+  }
+}
+
 
 function getFileIcon(extension) {
   const iconMap = {
@@ -223,19 +249,15 @@ function removeTypingIndicator() {
 }
 
 // Bot response logic
-function sendBotResponse(isFileUpload = false, isImageUpload = false) {
+async function sendBotResponse(userMessage) {
   showTypingIndicator();
-  const thinkingTime = Math.random() * 1000 + 1000;
-  setTimeout(() => {
-    removeTypingIndicator();
-    const botMessage = isImageUpload
-      ? getRandomImageResponse()
-      : isFileUpload
-      ? getRandomFileResponse()
-      : getRandomBotResponse();
-    addMessage(botMessage, false);
-  }, thinkingTime);
+
+  const botReply = await getBotResponseFromBackend(userMessage);
+
+  removeTypingIndicator();
+  addMessage(botReply, false);
 }
+
 
 // File upload handler
 function handleFileUpload(event) {
@@ -258,15 +280,17 @@ function handleFileUpload(event) {
 }
 
 // Send message
-function handleSendMessage() {
+async function handleSendMessage() {
   const messageText = messageInput.value.trim();
   if (messageText === '') return;
 
   addMessage(messageText, true);
   messageInput.value = '';
   messageInput.focus();
-  sendBotResponse();
+
+  await sendBotResponse(messageText);
 }
+
 
 // Event Listeners
 attachButton.addEventListener('click', () => fileInput.click());
@@ -322,9 +346,10 @@ minimizeButton.addEventListener('click', () => {
 
 // Quick actions
 quickActions.forEach(button => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', async () => {
     const text = button.textContent;
     addMessage(text, true);
-    sendBotResponse();
+    await sendBotResponse(text);
   });
 });
+
