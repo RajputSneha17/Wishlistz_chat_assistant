@@ -1,56 +1,54 @@
-# 🛍️ Wishlistz Backend  
-A modular, scalable backend for the Wishlistz Shopping Assistant Chatbot.  
-Built with **Node.js**, **Express**, and **MongoDB (Mongoose)**.  
+# 🛍️ Wishlistz – Shopping Assistant Chatbot
 
-The system powers intelligent shopping assistance including:
-- Personalized recommendations  
-- Trip/Gift/Theme planning  
-- Chat-based interaction  
-- Navigation inside app  
-- Wishlist & user activity tracking  
+Wishlistz is a modular and scalable **shopping assistant chatbot** that provides intelligent shopping help through chat-based interaction.
+
+It supports **personalized recommendations**, **Trip / Gift / Theme planners**, **wishlist management**, and **navigation inside the app**.
+
+The project is divided into **Frontend** and **Backend**.
 
 ---
 
-## 🚀 Features
+## 🧱 Tech Stack
 
-### 🔹 Chat System  
-- Understands user messages using custom NLU  
-- Supports shopping queries (trending, search, category-based)  
-- Handles planners (Trip, Gift, Theme)  
-- Navigation queries (e.g., "Where is men's section?")  
+### Frontend
+- HTML  
+- CSS  
+- JavaScript  
 
-### 🔹 Planner Engine  
-- **Trip Planner** – suggests checklist + missing items  
-- **Gift Planner** – suggests gifts by age, relation, budget  
-- **Theme Planner** – outfits, decoration, color theme suggestions  
+### Backend
+- Node.js  
+- Express.js  
+- MongoDB (Mongoose)  
+---
 
-### 🔹 Recommendation Engine  
-- Personalized recommendations  
-- Trending product suggestions  
-- Gap-based recommendations (based on user history & wishlist)  
+## 🚀 How to Run the Project
 
-### 🔹 User & Product Management  
-- Auth (JWT)  
-- Wishlist  
-- UserActivity logs  
-- Product catalog  
+### 🖥️ Frontend
+The frontend is built using **pure HTML, CSS, and JavaScript**.
 
-### 🔹 MongoDB + Mongoose  
-Clean schemas for all business entities.
+Steps:
+1. Open the `frontend` folder  
+2. Open `index.html` directly in your browser  
+
+No server setup is required for frontend.
 
 ---
 
-## 🏗️ System Architecture
+### Environment setup:
 
-Frontend (HTML, CSS, JS)
-↓ API Requests (REST)
-Node.js + Express Backend
-↓
-Routes → Controllers → Services → Models
-↓
-MongoDB Atlas (wishlistz_chatbot)
+Rename .env.example to .env
 
-yaml
-Copy code
+Fill all required values inside .env
 
----
+### ⚙️ Backend
+
+1. Go to the backend folder:
+```bash
+cd backend
+```
+```bash
+npm install
+```
+```bash
+nodemon server.js
+```

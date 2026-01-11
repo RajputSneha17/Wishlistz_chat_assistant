@@ -10,7 +10,7 @@ const minimizedChat = document.getElementById('minimizedChat');
 const themeToggle = document.getElementById('themeToggle');
 
 // ================= BACKEND CONFIG =================
-const BACKEND_CHAT_API = "http://localhost:5000/api/chat";
+const BACKEND_CHAT_API ="https://wishlistz-chat-assistant-jysd.onrender.com/api/chat";
 
 // Bot Responses
 const botResponses = [

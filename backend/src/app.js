@@ -1,7 +1,5 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import connectDB from "./config/db.js";
 
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
@@ -10,14 +8,15 @@ import chatRoutes from "./routes/chat.routes.js";
 import plannerRoutes from "./routes/planner.routes.js";
 import navigationRoutes from "./routes/navigate.routes.js";
 
-dotenv.config();
-connectDB();
-
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
 // Routes
+app.get("/", (req, res) => {
+  res.json({ message: "Backend is running 🚀" });
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
