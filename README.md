@@ -7,6 +7,13 @@ It supports **personalized recommendations**, **Trip / Gift / Theme planners**, 
 The project is divided into **Frontend** and **Backend**.
 
 ---
+## Live URL 
+
+### Frontend
+https://wishlistz-chat-assistant-weld.vercel.app/
+### Backend
+https://wishlistz-chat-assistant-jysd.onrender.com/
+---
 
 ## 🧱 Tech Stack
 
